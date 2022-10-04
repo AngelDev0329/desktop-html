@@ -104,9 +104,9 @@ function createWindow() {
         content: "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>"
     });
 
-    setTimeout(function () {
-        w.setContent("New window content");
-    }, 3000);
+    // setTimeout(function () {
+    //     w.setContent("New window content");
+    // }, 3000);
 }
 
 function createWindowWithCustomButtons() {
@@ -231,4 +231,37 @@ $('body').on('click', '.task-bar-item', function () {
             }
         });
     }
+
+    var ctxMenu = document.getElementById("ctxMenu");
+    ctxMenu.style.display = "";
+    ctxMenu.style.left = "";
+    ctxMenu.style.top = "";
 });
+
+$('body').on('contextmenu', '.task-bar-item', function (e) {
+
+    const x = e.pageX;
+    const y = e.pageY;
+
+    var contextMenu = $("#context-menu");
+    var top = (contextMenu.height() + y > $(document).height()) ? $(document).height() - contextMenu.height() - 45 : y;
+    // contextMenu.css("top", top + "px").css("left", x + "px").addClass("active");
+
+    menu(x, top)
+
+});
+
+// var notepad = document.getElementById("notepad");
+// notepad.addEventListener("contextmenu", function (event) {
+//     event.preventDefault();
+//     var ctxMenu = document.getElementById("ctxMenu");
+//     ctxMenu.style.display = "block";
+//     ctxMenu.style.left = (event.pageX - 10) + "px";
+//     ctxMenu.style.top = (event.pageY - 10) + "px";
+// }, false);
+// notepad.addEventListener("click", function (event) {
+//     var ctxMenu = document.getElementById("ctxMenu");
+//     ctxMenu.style.display = "";
+//     ctxMenu.style.left = "";
+//     ctxMenu.style.top = "";
+// }, false);
