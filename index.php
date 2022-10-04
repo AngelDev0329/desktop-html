@@ -300,7 +300,7 @@
         </div>
     </div>
 
-    <!-- --------------------- [CONTEXT MENU 1] ---------------------s -->
+    <!-- --------------- [CONTEXT MENU 1] --------------- -->
     <div id="menu">
         <a href="javascript:void(0)s">
             <img src="http://puu.sh/nr60s/42df867bf3.png" /> AdBlock Plus <span>Ctrl + ?!</span>
@@ -320,7 +320,7 @@
         </a>
     </div>
 
-    <!-- --------------------- [CONTEXT MENU 2] --------------------- -->
+    <!-- --------------- [CONTEXT MENU 2] --------------- -->
     <div id="context-menu">
         <!-- <div class="item-title" id="context-menu-title">
             <h1>Schnellwahl:</h1>
