@@ -310,7 +310,7 @@
         </a>
         <hr />
         <a href="javascript:void(0)" onclick="changeBackground()">
-            <i class="fa fa-fort-awesome"></i> Change Background Image
+            <i class="fa fa-image"></i> Change Background Image
         </a>
         <a href="#">
             <i class="fa fa-fort-awesome"></i> Fort Awesome <span>Ctrl + ?!</span>
@@ -335,13 +335,13 @@
             <a href="/link.html"><i class="fa-solid fa-link"></i>Links</a>
         </div> -->
         <div id="context-menu-win-minimize" class="item">
-            <a href="javascript:void(0)"><i class="fa-solid fa-house"></i>Minimize</a>
+            <a href="javascript:void(0)"><i class="fa fa-minus-square-o"></i>Minimize</a>
         </div>
         <div id="context-menu-win-maxmize" class="item">
-            <a href="javascript:void(0)"><i class="fa-solid fa-lock-open"></i>Maxmize</a>
+            <a href="javascript:void(0)"><i class="fa fa-square-o"></i>Maxmize</a>
         </div>
         <div id="context-menu-win-close" class="item">
-            <a href="javascript:void(0)"><i class="fa-solid fa-lock-open"></i>Close</a>
+            <a href="javascript:void(0)"><i class="fa fa-close"></i>Close</a>
         </div>
     </div>
 
