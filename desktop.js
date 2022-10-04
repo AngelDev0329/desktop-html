@@ -101,6 +101,7 @@ function createWindow() {
         width: 300,
         icon: "<span class='mif-" + w_icons[index] + "'></span>",
         title: w_titles[index],
+        place: "center",
         content: "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>"
     });
 
@@ -135,6 +136,7 @@ function createWindowWithCustomButtons() {
         width: 360,
         icon: "<span class='mif-" + w_icons[index] + "'></span>",
         title: w_titles[index],
+        place: "center",
         content: "<div class='p-2'>This is desktop demo created with Metro 4 Components Library.<br><br>This window has a custom buttons in caption.</div>"
     });
 }
@@ -172,6 +174,7 @@ function createWindowYoutube() {
         width: 500,
         icon: "<span class='mif-youtube'></span>",
         title: "Youtube video",
+        place: "center",
         content: "https://youtu.be/Qz6XNSB0F3E",
         clsContent: "bg-dark"
     });
@@ -184,6 +187,7 @@ function createWindowWithUrl(url) {
         width: 500,
         icon: "<span class='mif-youtube'></span>",
         title: "My website",
+        place: "center",
         content: "http://192.168.101.130:4001/login",
         clsContent: "bg-dark"
     });
