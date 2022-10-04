@@ -26,10 +26,10 @@
 
     <meta name="author" content="Sergey Pimenov">
     <meta name="description" content="The most popular HTML, CSS, and JS library in Metro style.">
-    <meta name="keywords"
-        content="HTML, CSS, JS, Metro, CSS3, Javascript, HTML5, UI, Library, Web, Development, Framework">
+    <meta name="keywords" content="HTML, CSS, JS, Metro, CSS3, Javascript, HTML5, UI, Library, Web, Development, Framework">
 
     <link href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="descktop.css" rel="stylesheet">
 
     <title>Desktop demo - Metro 4 :: Popular HTML, CSS and JS library</title>
@@ -309,6 +309,9 @@
             <img src="http://puu.sh/nr5Z6/4360098fc1.png" /> SNTX <span>Ctrl + ?!</span>
         </a>
         <hr />
+        <a href="javascript:void(0)" onclick="changeBackground()">
+            <i class="fa fa-fort-awesome"></i> Change Background Image
+        </a>
         <a href="#">
             <i class="fa fa-fort-awesome"></i> Fort Awesome <span>Ctrl + ?!</span>
         </a>
@@ -332,7 +335,7 @@
             <a href="/link.html"><i class="fa-solid fa-link"></i>Links</a>
         </div> -->
         <div id="context-menu-win-minimize" class="item">
-            <a href="javascript:void(0)"><i class="fa-solid fa-lock-open"></i>Minimize</a>
+            <a href="javascript:void(0)"><i class="fa-solid fa-house"></i>Minimize</a>
         </div>
         <div id="context-menu-win-maxmize" class="item">
             <a href="javascript:void(0)"><i class="fa-solid fa-lock-open"></i>Maxmize</a>
@@ -346,6 +349,14 @@
     <!-- <script src="metro.js"></script> -->
     <script src="desktop.js"></script>
     <script>
+        changeBackground = () => {
+            var background = $(".window-area").css("background");
+            if (background.indexOf("img28") > -1) 
+                $(".window-area").css("background", 'url("anime-background-images-1.jpg") center center no-repeat').css("background-size", "cover");
+            else 
+                $(".window-area").css("background", 'url("img28.jpg") center center no-repeat').css("background-size", "cover");
+        }
+
         isWindow = (className) => {
             if (className.includes("mif")) return true;
             if (className.includes("button")) return true;

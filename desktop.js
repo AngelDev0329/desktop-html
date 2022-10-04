@@ -245,9 +245,9 @@ $('body').on('contextmenu', '.task-bar-item', function (e) {
 
     var contextMenu = $("#context-menu");
     var top = (contextMenu.height() + y > $(document).height()) ? $(document).height() - contextMenu.height() - 45 : y;
-    // contextMenu.css("top", top + "px").css("left", x + "px").addClass("active");
+    contextMenu.css("top", top + "px").css("left", x + "px").addClass("active");
 
-    menu(x, top)
+    // menu(x, top)
 
 });
 
