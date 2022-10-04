@@ -70,13 +70,13 @@ var Desktop = {
         var wnd = w.window(o).data("window");
 
         var win = wnd.win;
-        // var shift = Metro.utils.objectLength(this.wins) * 16;
-        // if (wnd.options.place === "auto" && wnd.options.top === "auto" && wnd.options.left === "auto") {
-        //     win.css({
-        //         top: shift,
-        //         left: shift
-        //     });
-        // }
+        var shift = Metro.utils.objectLength(this.wins) * 16;
+        if (wnd.options.place === "auto" && wnd.options.top === "auto" && wnd.options.left === "auto") {
+            win.css({
+                top: shift,
+                left: shift
+            });
+        }
         this.wins[win.attr("id")] = wnd;
         if (!win.hasClass("modal")) this.addToTaskBar(wnd);
 
@@ -243,6 +243,14 @@ $('body').on('click', '.task-bar-item', function () {
 });
 
 $('body').on('contextmenu', '.task-bar-item', function (e) {
+    console.log("target.id ===> ", e.target.id);
+    if (
+        e.target.className == "mif-windows" ||
+        e.target.className == "mif-comment" ||
+        e.target.id == "start-menu-toggle" ||
+        e.target.id == "open-charm"
+    ) 
+    return false;
 
     const x = e.pageX;
     const y = e.pageY;
@@ -250,9 +258,6 @@ $('body').on('contextmenu', '.task-bar-item', function (e) {
     var contextMenu = $("#context-menu");
     var top = (contextMenu.height() + y > $(document).height()) ? $(document).height() - contextMenu.height() - 45 : y;
     contextMenu.css("top", top + "px").css("left", x + "px").addClass("active");
-
-    // menu(x, top)
-
 });
 
 // var notepad = document.getElementById("notepad");
