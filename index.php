@@ -300,28 +300,28 @@
         </div>
     </div>
 
-    <!-- -------------------------------- [CONTEXT MENU 1] -------------------------------- -->
+    <!-- --------------------- [CONTEXT MENU 1] ---------------------s -->
     <div id="menu">
-        <a href="#">
+        <a href="javascript:void(0)s">
             <img src="http://puu.sh/nr60s/42df867bf3.png" /> AdBlock Plus <span>Ctrl + ?!</span>
         </a>
-        <a href="#">
+        <a href="javascript:void(0)">
             <img src="http://puu.sh/nr5Z6/4360098fc1.png" /> SNTX <span>Ctrl + ?!</span>
         </a>
         <hr />
         <a href="javascript:void(0)" onclick="changeBackground()">
             <i class="fa fa-image"></i> Change Background Image
         </a>
-        <a href="#">
+        <a href="javascript:void(0)">
             <i class="fa fa-fort-awesome"></i> Fort Awesome <span>Ctrl + ?!</span>
         </a>
-        <a href="#">
+        <a href="javascript:void(0)">
             <i class="fa fa-flag"></i> Font Awesome <span>Ctrl + ?!</span>
         </a>
     </div>
 
-    <!-- -------------------------------- [CONTEXT MENU 2] -------------------------------- -->
-    <div id="context-menu" class="buttons">
+    <!-- --------------------- [CONTEXT MENU 2] --------------------- -->
+    <div id="context-menu">
         <!-- <div class="item-title" id="context-menu-title">
             <h1>Schnellwahl:</h1>
         </div>
