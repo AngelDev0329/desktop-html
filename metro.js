@@ -33929,7 +33929,8 @@
             if (Utils.isNull(o.content)) {
                 o.content = element;
             } else {
-                if (Utils.isUrl(o.content) && Utils.isVideoUrl(o.content)) {
+//                if (Utils.isUrl(o.content) && Utils.isVideoUrl(o.content)) {
+                if (Utils.isUrl(o.content)) {
                     o.content = Utils.embedUrl(o.content);
                     element.css({
                         height: "100%"

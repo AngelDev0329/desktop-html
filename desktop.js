@@ -188,8 +188,8 @@ function createWindowWithUrl(url) {
         icon: "<span class='mif-youtube'></span>",
         title: "My website",
         place: "center",
-        content: "http://192.168.101.130:4001/login",
-        clsContent: "bg-dark"
+        content: url,
+//        clsContent: "bg-dark"
     });
 }
 
