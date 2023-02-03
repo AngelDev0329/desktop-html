@@ -70,13 +70,13 @@ var Desktop = {
         var wnd = w.window(o).data("window");
 
         var win = wnd.win;
-        // var shift = Metro.utils.objectLength(this.wins) * 16;
-        // if (wnd.options.place === "auto" && wnd.options.top === "auto" && wnd.options.left === "auto") {
-        //     win.css({
-        //         top: shift,
-        //         left: shift
-        //     });
-        // }
+        var shift = Metro.utils.objectLength(this.wins) * 16;
+        if (wnd.options.place === "auto" && wnd.options.top === "auto" && wnd.options.left === "auto") {
+            win.css({
+                top: shift,
+                left: shift
+            });
+        }
         this.wins[win.attr("id")] = wnd;
         if (!win.hasClass("modal")) this.addToTaskBar(wnd);
 
@@ -180,6 +180,20 @@ function createWindowYoutube() {
     });
 }
 
+
+function createWindowYouUrl() {
+    Desktop.createWindow({
+        resizeable: true,
+        draggable: true,
+        width: 500,
+        icon: "<span class='mif-youtube'></span>",
+        title: "Youtube video",
+        place: "center",
+        content: "https://youtu.be/ncGQP7OVZLI",
+        clsContent: "bg-dark"
+    });
+}
+
 function createWindowWithUrl(url) {
     Desktop.createWindow({
         resizeable: true,
@@ -188,8 +202,8 @@ function createWindowWithUrl(url) {
         icon: "<span class='mif-youtube'></span>",
         title: "My website",
         place: "center",
-        content: "http://192.168.101.130:4001/login",
-        clsContent: "bg-dark"
+        content: url,
+//        clsContent: "bg-dark"
     });
 }
 
@@ -243,6 +257,14 @@ $('body').on('click', '.task-bar-item', function () {
 });
 
 $('body').on('contextmenu', '.task-bar-item', function (e) {
+    console.log("target.id ===> ", e.target.id);
+    if (
+        e.target.className == "mif-windows" ||
+        e.target.className == "mif-comment" ||
+        e.target.id == "start-menu-toggle" ||
+        e.target.id == "open-charm"
+    ) 
+    return false;
 
     const x = e.pageX;
     const y = e.pageY;
@@ -250,9 +272,6 @@ $('body').on('contextmenu', '.task-bar-item', function (e) {
     var contextMenu = $("#context-menu");
     var top = (contextMenu.height() + y > $(document).height()) ? $(document).height() - contextMenu.height() - 45 : y;
     contextMenu.css("top", top + "px").css("left", x + "px").addClass("active");
-
-    // menu(x, top)
-
 });
 
 // var notepad = document.getElementById("notepad");
@@ -269,3 +288,18 @@ $('body').on('contextmenu', '.task-bar-item', function (e) {
 //     ctxMenu.style.left = "";
 //     ctxMenu.style.top = "";
 // }, false);
+
+//var newRows = '<tr id="claim_' + b.id + '">' +
+                    //'<td class="text-center"><input type="checkbox" class="sel_users" onchange="changeCheckClaim(this)" value="' + b.id + '"></td>' +
+//                    '<td class="text-center"></td>' +
+////                            '<td class="text-center"><span class="badge" style="background-color: #' + acceptStatusClass +' !important;">' + statusStr + '</span></td>' +
+//                    '<td>' + status + '</td>' +
+//                    '<td>' + b.claim_number + '</td>' +
+//                    '<td>' + b.insured_info + '</td>' +
+//                    '<td>' + b.address + ', ' + b.city + ', ' + b.state + ', ' + b.zip_code + '</td>' +
+//                    '<td>' + (b.time == null /*|| b.time.trim() == "undefined"*/  ? "" : b.time) + ' ' + (b.date == null /*|| b.date.trim() == "undefined"*/ ? "" : b.date) + '</td>' +
+////                    '<td class="text-center">' + '<span class="bg-info" style="padding: 5px; border-radius: 5px;">' + accepted + '</span></td>' +
+////                    '<td class="text-center"><span class="' + accepted == "Pending" ? 'bg-success' : 'bg-info' + '" style="padding: 5px; border-radius: 5px;">' + accepted + '</span></td>' +
+//                    `<td class="text-center"><span class="${accepted== 'Pending' ? 'bg-success' : 'bg-info'}" style="padding: 5px; border-radius: 5px;">${accepted}</span></td>` +
+//                    '<td>' + actionStr + '</td>' +
+//                '</tr>';

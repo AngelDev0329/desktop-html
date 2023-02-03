@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,14 +8,12 @@
     <meta name="twitter:creator" content="@pimenov_sergey">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Metro 4 Components Library">
-    <meta name="twitter:description"
-        content="Metro 4 is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with responsive grid system, extensive prebuilt components, and powerful plugins  .">
+    <meta name="twitter:description" content="Metro 4 is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with responsive grid system, extensive prebuilt components, and powerful plugins  .">
     <meta name="twitter:image" content="https://metroui.org.ua/images/m4-logo-social.png">
 
     <meta property="og:url" content="https://metroui.org.ua/index.html">
     <meta property="og:title" content="Metro 4 Components Library">
-    <meta property="og:description"
-        content="Metro 4 is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with responsive grid system, extensive prebuilt components, and powerful plugins  .">
+    <meta property="og:description" content="Metro 4 is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with responsive grid system, extensive prebuilt components, and powerful plugins  .">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://metroui.org.ua/images/m4-logo-social.png">
     <meta property="og:image:secure_url" content="https://metroui.org.ua/images/m4-logo-social.png">
@@ -37,7 +34,6 @@
     <style>
         .window-area {
             background: url("img28.jpg") center center no-repeat;
-            /* background: url("anime-background-images-1.jpg") center center no-repeat; */
             background-size: cover;
         }
 
@@ -272,7 +268,7 @@
         <div class="window-area"></div>
         <div class="task-bar">
             <div class="task-bar-section">
-                <button class="task-bar-item" id="start-menu-toggle"><span class="mif-windows"></span></button>
+                <button class="task-bar-item" id="start-menu-toggle" onClick="hideMenu()"><span class="mif-windows"></span></button>
                 <div class="start-menu" data-role="dropdown" data-toggle-element="#start-menu-toggle">
                     <div class="start-menu-inner">
                         <div class="explorer">
@@ -281,8 +277,8 @@
                                 <li><a onclick="createWindow()">New window</a></li>
                                 <li><a onclick="createWindowWithCustomButtons()">Custom buttons</a></li>
                                 <li><a onclick="createWindowModal()">Modal window</a></li>
-                                <li><a onclick="createWindowWithUrl('http\:\/\/192.168.101.130:4001/login')">My
-                                        website</a></li>
+                                <li><a onclick="createWindowWithUrl(`http://192.168.101.214:1111`)">My website</a></li>
+                                <li><a onclick="createWindowYouUrl()">My test</a></li>
                             </ul>
                         </div>
                     </div>
@@ -300,28 +296,28 @@
         </div>
     </div>
 
-    <!-- -------------------------------- [CONTEXT MENU 1] -------------------------------- -->
+    <!-- --------------- [CONTEXT MENU 1] --------------- -->
     <div id="menu">
-        <a href="#">
+        <a href="javascript:void(0)s">
             <img src="http://puu.sh/nr60s/42df867bf3.png" /> AdBlock Plus <span>Ctrl + ?!</span>
         </a>
-        <a href="#">
+        <a href="javascript:void(0)">
             <img src="http://puu.sh/nr5Z6/4360098fc1.png" /> SNTX <span>Ctrl + ?!</span>
         </a>
         <hr />
         <a href="javascript:void(0)" onclick="changeBackground()">
             <i class="fa fa-image"></i> Change Background Image
         </a>
-        <a href="#">
+        <a href="javascript:void(0)">
             <i class="fa fa-fort-awesome"></i> Fort Awesome <span>Ctrl + ?!</span>
         </a>
-        <a href="#">
+        <a href="javascript:void(0)">
             <i class="fa fa-flag"></i> Font Awesome <span>Ctrl + ?!</span>
         </a>
     </div>
 
-    <!-- -------------------------------- [CONTEXT MENU 2] -------------------------------- -->
-    <div id="context-menu" class="buttons">
+    <!-- --------------- [CONTEXT MENU 2] --------------- -->
+    <div id="context-menu">
         <!-- <div class="item-title" id="context-menu-title">
             <h1>Schnellwahl:</h1>
         </div>
@@ -345,8 +341,8 @@
         </div>
     </div>
 
-    <script src="metro.min.js"></script>
-    <!-- <script src="metro.js"></script> -->
+<!--    <script src="metro.min.js"></script>-->
+    <script src="metro.js"></script> 
     <script src="desktop.js"></script>
     <script>
         changeBackground = () => {
@@ -357,43 +353,7 @@
                 $(".window-area").css("background", 'url("img28.jpg") center center no-repeat').css("background-size", "cover");
         }
 
-        isWindow = (className) => {
-            if (className.includes("mif")) return true;
-            if (className.includes("button")) return true;
-
-            var winClassNames = [
-                "window-area",
-                "task-bar",
-                "clock-divider",
-                "task-bar-item",
-                "task-bar-item started",
-                "title",
-                "clock-minute",
-                // "mif-windows",
-                // "mif-comment",
-                // "mif-cog",
-                "icon",
-                "pr-4",
-
-            ];
-
-            return winClassNames.includes(className);
-        }
-
-        // document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener("contextmenu", function (e) {
-            console.log("e.target.nodeName===>", e.target, e.target.className, e.pageX, e.pageY);
-            if (isWindow(e.target.className)) e.preventDefault();
-            // if (e.target.nodeName === "IMG") e.preventDefault();
-            // e.preventDefault();
-            // const x = event.pageX;
-            // const y = event.pageY;
-            // openCustomContext(x, y)
-        }, false);
-
-        window.addEventListener("click", function () {
-            this.document.getElementById("context-menu").classList.remove("active")
-        });
+        
 
         // function contextMenuHome_active() {
         //     document.getElementById("context-menu-home").innerHTML = '<a href="/index.html"><i class="fa-solid fa-house fa-beat" ></i>Home test</a>'
@@ -421,6 +381,37 @@
     </script>
 
     <script>
+        isWindow = (className) => {
+            if (className.includes("mif")) return true;
+            if (className.includes("button")) return true;
+
+            var winClassNames = [
+                "window-area",
+                "task-bar",
+                "clock-divider",
+                "task-bar-item",
+                "task-bar-item started",
+                "title",
+                "clock-minute",
+                "icon",
+                "pr-4"
+            ];
+
+            return winClassNames.includes(className);
+        }
+
+        // document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener("contextmenu", function (e) {
+            // console.log("e.target.nodeName===>", e.target, e.target.className, e.pageX, e.pageY);
+            if (isWindow(e.target.className)) e.preventDefault();
+            // if (e.target.nodeName === "IMG") e.preventDefault();
+            // e.preventDefault();
+            // const x = event.pageX;
+            // const y = event.pageY;
+            // openCustomContext(x, y)
+        // }, false);
+        });
+
         var winObj = $(".window-area");
         var i = document.getElementById("menu").style;
 
@@ -430,12 +421,22 @@
             menu(posX, posY);
             e.preventDefault();
         });
-        $(document).on("click", function (e) {
-            i.opacity = "0";
-            setTimeout(function () {
-                i.visibility = "hidden";
-            }, 300);
+
+        window.addEventListener("click", function () {
+            $("#context-menu").removeClass("active");
+            hideMenu();
         });
+
+        $(document).on("click", function (e) {
+            $("#context-menu").removeClass("active");
+            hideMenu();
+        });
+
+        $('body').on('click', '*', function (e) {
+            $("#context-menu").removeClass("active");
+            hideMenu();
+        });
+
         // if (document.addEventListener) {
         //     document.addEventListener('contextmenu', function (e) {
         //         var posX = e.clientX;
@@ -469,6 +470,13 @@
             i.left = x + "px";
             i.visibility = "visible";
             i.opacity = "1";
+        }
+
+        hideMenu = () => {
+            i.opacity = "0";
+            setTimeout(function () {
+                i.visibility = "hidden";
+            }, 300);
         }
     </script>
 </body>
